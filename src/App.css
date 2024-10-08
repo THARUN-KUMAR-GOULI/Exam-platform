@@ -20,7 +20,7 @@
 
 .instructions {
   width: 90%;
-  height: 180px;
+  height: auto;
   margin-top: 20px;
   position: relative;
   border: 1px solid black;
@@ -28,11 +28,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-}
-
-ol {
-  height: 500px;
-
 }
 
 .instructions ol {
@@ -97,7 +92,7 @@ h2 {
 }
 
 .start-button {
-  position: absolute;
+  /* position: absolute; */
   bottom: 20px;
   left: 42%
 }
