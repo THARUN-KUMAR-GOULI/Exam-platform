@@ -1,0 +1,117 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.start-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  margin-top: 23px;
+  border: 1px solid black;
+  border-style: dashed;
+}
+
+.instructions {
+  width: 550px;
+  height: 200px;
+  margin-top: 20px;
+  position: relative;
+  border: 1px solid black;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+ol {
+  height: 500px;
+
+}
+
+.instructions ol {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  justify-content: space-between;
+}
+
+.instructions h3 {
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+h2 {
+  color: green;
+}
+
+.exam-window {
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.question-box {
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin: 20px auto;
+  width: 70%;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  color: black;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.timer {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  color: blue;
+}
+
+.checkbox input {
+  margin-top: 20px;
+}
+
+.start-button {
+  position: absolute;
+  bottom: 20px;
+  left: 42%
+}
+
+.time-out {
+  margin-top: 100px;
+  color: black;
+  font-size: 15px;
+}
+
+.success-status {
+  font-size: 20px;
+  color: green;
+}
+
+.violation-msg {
+  color: red;
+}
