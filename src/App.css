@@ -2,6 +2,7 @@
   text-align: center;
   font-family: Arial, sans-serif;
   padding: 20px;
+  width: 90%;
 }
 
 .start-page {
@@ -18,7 +19,7 @@
 }
 
 .instructions {
-  width: 550px;
+  width: 90%;
   height: 200px;
   margin-top: 20px;
   position: relative;
