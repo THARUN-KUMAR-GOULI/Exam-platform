@@ -1,5 +1,5 @@
 # Access this application
-__This application is live and accessible at__ [Project Link](https://tharun-kumar-gouli.github.io/Exam-Platform)
+__This application is live and accessible at__ [Project Link](https://tharun-kumar-gouli.github.io/Exam-platform)
 
 # Exam Platform
 

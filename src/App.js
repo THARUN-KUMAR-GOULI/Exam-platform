@@ -16,9 +16,11 @@ function App() {
   const [userAnswers, setUserAnswers] = useState({});
   const [score, setScore] = useState(0);
   const[isTimeOut, setIsTimeOut] = useState(false);
+  const[resumeTimeLeft, setResumeTimeLeft] = useState(15);
   const[isBoxChecked, setIsBoxChecked] = useState(false);
   const[isSubmissionConfirm, setIsSubmissionConfirm] = useState(false);
   const timerRef = useRef(null);
+  const resumeTimerRef = useRef(null);
 
   const questions = [
     { id: 1, question: "What is the primary purpose of React.js?", options: ["To build server-side applications", "To create dynamic user interfaces", "To manage databases", "To handle networking requests"], answer: "To create dynamic user interfaces" },
@@ -55,9 +57,27 @@ function App() {
       setShowViolationWarning(true);
       setIsViolated(true);
       setTimeout(() => setShowViolationWarning(false), 3000);
+      setResumeTimeLeft(15);
+      startResumeTimer();
     } else {
       terminateExam();
     }
+  };
+
+  const startResumeTimer = () => {
+    if(resumeTimerRef.current) clearInterval(resumeTimerRef.current);
+
+    resumeTimerRef.current = setInterval(() => {
+      setResumeTimeLeft(prevTime => {
+        if(prevTime > 1){
+          return prevTime - 1;
+        } else{
+          clearInterval(resumeTimerRef.current);
+          terminateExam();
+          return 0;
+        }
+      });
+    }, 1000);
   };
 
   const enterFullScreen = () => {
@@ -163,6 +183,9 @@ function App() {
   const resumeExam = () => {
       setIsViolated(false);
       enterFullScreen();
+      clearInterval(resumeTimerRef.current);
+      // setResumeTimeLeft(5);
+      // startResumeTimer();
   };
 
   const formatTime = (timeInSeconds) => {
@@ -182,7 +205,7 @@ function App() {
               <li>The exam duration is limited to 10 minutes.</li>
               <li>You can reset the exam at any time before submission.</li>
               <li>If you violate the exam rules, you will receive a warning.</li>
-              <li>Only one warning is valid; if you violate a second time, the exam will be automatically terminated.</li>
+              <li>Only Two warning's are valid; if you violate Third time, the exam will be automatically terminated.</li>
             </ol>
           </div>
 
@@ -246,7 +269,12 @@ function App() {
               </div>
               )}
               {showViolationWarning && <p className='violation-msg'>Violation warning: Do not exit full-screen mode! Violation: {violationCount}/2</p>}
-              {isViolated && !showViolationWarning && <button onClick={resumeExam}>Resume Exam</button>}
+              {isViolated && !showViolationWarning && (
+                <>
+                  <p className='violation-msg'>violation detected, exam will be terminated after {resumeTimeLeft} seconds</p>
+                  <button onClick={resumeExam}>Resume Exam</button>
+                </>
+              )}
               {isSubmissionConfirm && (
                 <div>
                   <p> Are you sure you want to submit ?</p>
