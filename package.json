@@ -2,7 +2,7 @@
   "name": "exam-platform",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://THARUN-KUMAR-GOULI.github.io/Exam-Platform",
+  "homepage": "https://tharun-kumar-gouli.github.io/Exam-Platform",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
